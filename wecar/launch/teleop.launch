@@ -1,0 +1,20 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+  <group ns="vesc">
+    <!-- joystick node -->
+    <include file="$(find wecar)/launch/includes/teleop/joy_teleop.launch.xml" />
+
+    <!-- Spawn MUXs -->
+    <include file="$(find wecar)/launch/includes/teleop/mux.launch" />
+
+    <!-- start electronic speed controller driver -->
+    <include file="$(find wecar)/launch/includes/teleop/vesc.launch.xml" />
+  </group>
+
+  <!-- start imu and laser scanner -->
+  <include file="$(find wecar)/launch/includes/teleop/sensors.launch.xml" />
+
+  <!-- static transforms, e.g. base_link to imu -->
+  <include file="$(find wecar)/launch/includes/teleop/static_transforms.launch.xml" />
+</launch>

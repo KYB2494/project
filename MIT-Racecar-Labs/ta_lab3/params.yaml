@@ -1,0 +1,10 @@
+scan_topic: "/scan"
+drive_topic: "/drive"
+#벽으로부터 유지해야하는 거리
+desired_distance: 1.
+start_pose: [-4.0, -5.4, 0.0]
+#속도
+velocity: 2
+end_pos: [-4.0, -5.0]
+# +1 왼쪽 벽, -1 오른쪽 벽
+side: 1

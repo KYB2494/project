@@ -1,0 +1,5 @@
+<launch>
+    <!-- arg name="map" default="$(find particle_filter)/maps/abc.yaml"/-->
+    <arg name="map" default="$(find wecar)/map/test_map.yaml"/>
+    <node pkg="map_server" name="map_server" type="map_server" args="$(arg map)" />
+</launch>

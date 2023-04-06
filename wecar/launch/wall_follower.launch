@@ -1,0 +1,18 @@
+<launch>
+	<node pkg="map_server" type="map_server" name="map_server" args="$(find wecar)/map/abc.yaml"/>
+
+	<!--node pkg="ta_lab3" type="safety.py" name="Safety_Controller" /-->
+
+	<node pkg="ta_lab3" type="wall_follow.py" name="Wall_Following_Controller" />
+
+	<node pkg="rviz" type="rviz" name="rviz" args="-d /home/nvidia/wecar_ws/src/wecar/rviz/wall_follower.rviz"/>
+	<node pkg="wecar" type="amcl_to_odom.py" name="amcl_to_odom"/>
+	<include file="$(find wecar)/launch/includes/amcl_diff.launch"/>
+
+
+	<node pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
+	<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+	<param name="robot_description" command="$(find xacro)/xacro $(find ta_lab6)/urdf/racecar_2.xacro"/>
+
+
+</launch>

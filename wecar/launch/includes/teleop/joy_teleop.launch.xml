@@ -1,0 +1,16 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+  <arg name="racecar_version" default="racecar-v2" />
+  <arg name="joy_teleop_config"
+       default="$(find racecar)/config/$(arg racecar_version)/joy_teleop.yaml" />
+
+  <rosparam file="$(arg joy_teleop_config)" command="load" />
+
+  <node pkg="joy" type="joy_node" name="joy_node" >
+	<param name="dev" value="/dev/input/js0"/>
+  </node>
+
+
+  <node pkg="racecar" type="joy_teleop.py" name="joy_teleop" />
+
+</launch>
