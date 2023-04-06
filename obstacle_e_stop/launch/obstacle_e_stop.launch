@@ -1,0 +1,10 @@
+<launch>
+	<node pkg="obstacle_e_stop" type="obstacle_e_stop.py" name="obstacle_e_stop" output="screen" >
+		<param name="mode" value="2"/>
+		<param name="r_th" value="1"/>
+		<param name="angle_th" value="1"/>
+		<param name="x_th" value="1"/>
+		<param name="y_th" value="0.3"/>
+		<param name="obstacle_topic" value="/obstacles"/>
+	</node>
+</launch>
